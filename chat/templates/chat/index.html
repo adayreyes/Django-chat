@@ -29,6 +29,13 @@
     </div>
     <main class="mdl-layout__content">
       <div class="page-content" style="padding:100px">
+        {% for message in messages %}
+        <div>
+          <span style="color: #7b7b7b">{{message.created_at}}</span>
+          <span style="font-weight: bold;">{{message.author.first_name}}:</span>
+          <span>{{ message.text }}</span>
+        </div>
+        {% endfor %}
         <form action="/chat/" method="post">
           {% csrf_token %}
             <div class="mdl-textfield mdl-js-textfield">
